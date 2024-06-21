@@ -9,9 +9,14 @@ const EXPIRES_1MONTH = 30;
 const productSchema = z.object({
   name: z.string(),
   description: z.string().optional(),
+  value: z.number().optional(),
+  available: z.boolean().optional(), 
   createdDate: z.date().optional(),
 });
 
+
+value: real
+avaliable: boolean
 export default class ProductController {
   async destroy(request, response) {
     const { id } = request.params;
