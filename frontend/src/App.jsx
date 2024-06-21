@@ -1,11 +1,15 @@
 import "./App.css";
+import AppContextProvider from "./context/AppContext";
+import ProductContextProvider from "./context/ProductContext";
 import { Router } from "./routes";
 
 export default function App() {
 
   return (
-    <div className="App">
+    <AppContextProvider>
+      <ProductContextProvider>
         <Router />
-    </div>
+      </ProductContextProvider>
+    </AppContextProvider>
   );
 }
