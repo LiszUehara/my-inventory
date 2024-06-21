@@ -1720,6 +1720,11 @@ balanced-match@^1.0.0:
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
+boring-avatars@^1.10.2:
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/boring-avatars/-/boring-avatars-1.10.2.tgz#4f3aa717c32ddf64627eb1f1ca41f3f7495b60ca"
+  integrity sha512-uQyvmNeW6loz4Yytj7aDo0IhhuByW/YyOHtqwb3kQ/x48hum22hROA2Wn3qzrLR5JsoZ+FHjPO6z6LrXrWjegg==
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -3517,10 +3522,15 @@ use-sidecar@^1.1.2:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
 
-vite@^5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.3.0.tgz#6c11eb5b41a667c64d38ff38fe6dec7ff68b65a9"
-  integrity sha512-hA6vAVK977NyW1Qw+fLvqSo7xDPej7von7C3DwwqPRmnnnK36XEBC/J3j1V5lP8fbt7y0TgTKJbpNGSwM+Bdeg==
+uuid@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-10.0.0.tgz#5a95aa454e6e002725c79055fd42aaba30ca6294"
+  integrity sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==
+
+vite@^5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.3.1.tgz#bb2ca6b5fd7483249d3e86b25026e27ba8a663e6"
+  integrity sha512-XBmSKRLXLxiaPYamLv3/hnP/KXDai1NDexN0FpkTaZXTfycHvkRHoenpgl/fvuK/kPbB6xAgoyiryAhQNxYmAQ==
   dependencies:
     esbuild "^0.21.3"
     postcss "^8.4.38"
