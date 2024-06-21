@@ -14,9 +14,6 @@ const productSchema = z.object({
   createdDate: z.date().optional(),
 });
 
-
-value: real
-avaliable: boolean
 export default class ProductController {
   async destroy(request, response) {
     const { id } = request.params;
@@ -100,13 +97,22 @@ export default class ProductController {
 
   async update(request, response) {
     const { id } = request.params;
-    const { description } = request.body;
-
-    await prismaClient.product.update({
-      data: { description },
-      where: { id },
-    });
-
-    response.send({ message: "product Updated" });
+    const { description, value, available } = request.body;
+  
+    try {
+      const updatedProduct = await prismaClient.product.update({
+        where: { id: parseInt(id, 10) }, // Ensure id is parsed to the correct type (e.g., integer)
+        data: { description, value, available },
+      });
+  
+      if (!updatedProduct) {
+        return response.status(404).json({ error: "Product not found." });
+      }
+  
+      response.status(200).json({ message: "Product updated successfully." });
+    } catch (error) {
+      console.error("Error updating product:", error);
+      response.status(500).json({ error: "Internal server error." });
+    }
   }
 }

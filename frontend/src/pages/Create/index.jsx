@@ -16,12 +16,16 @@ import {
   import { useNavigate } from "react-router-dom";
   import fetcher from "../../services/api";
   import { AppContext } from "../../context/AppContext";
+import { NumberInput } from "../../components/NumberInput";
+import { Switch } from "../../components/Switch";
   
   const productSchema = z.object({
     name: z.string(),
     description: z.string().nullable(),
-    createDate: z.coerce.date(),
+    value: z.string(),
+    available: z.boolean()
   });
+  
   
   export default function Create() {
     const { formState, handleSubmit, register } = useForm({
@@ -31,14 +35,15 @@ import {
     const navigate = useNavigate();
     const { loggedUser } = useContext(AppContext);
     const onSubmit = (values) => {
-      fetcher.post('/api/product',values);
-      navigate("../");
+     fetcher.post('/api/product',{...values,value: parseFloat(values.value)});
+      navigate("/product/my");
     };
     useEffect(() => {
       if (!loggedUser) {
         navigate('../auth/signin')
       }
     }, [loggedUser]);
+
     return (
       <Flex minH={"80vh"} align={"center"} justify={"center"} bg={"gray.800"}>
         <Stack
@@ -52,15 +57,15 @@ import {
           my={12}
         >
           <Heading lineHeight={1.1} fontSize={{ base: "2xl", sm: "3xl" }}>
-            Cadastro de Disciplina
+            Cadastro de Produto
           </Heading>
           <Input
             messageError={formState.errors.name?.message}
             register={register("name")}
-            label="Nome"
+            label="Name"
             id="name"
             errors={formState.errors}
-            placeholder="Digite o nome da disciplina"
+            placeholder="Enter the product name"
             isRequired={true}
             type="text"
           />
@@ -68,7 +73,7 @@ import {
             id="description"
             isInvalid={!!formState.errors.description}
           >
-            <FormLabel>Descrição</FormLabel>
+            <FormLabel>Description</FormLabel>
             <Textarea
               {...register("description")}
               _placeholder={{ color: "gray.500" }}
@@ -82,15 +87,28 @@ import {
               {formState.errors.description?.message}
             </FormErrorMessage>
           </FormControl>
-          <Input
-            messageError={formState.errors.createDate?.message}
-            register={register("createDate")}
-            label="Data de Criação"
-            id="createDate"
+          <NumberInput
+            messageError={formState.errors.value?.message}
+            register={register("value")}
+            label="Value"
+            id="value"
+            errors={formState.errors}
+            placeholder="Enter the product value"
+            isRequired
+            min={0}
+            defaultValue={0}
+            precision={2}
+          />
+          <Switch
+            messageError={formState.errors.available?.message}
+            register={register("available")}
+            label="is Available ?"
+            id="available"
             errors={formState.errors}
             isRequired={true}
             type="date"
           />
+
   
           <Stack spacing={6} direction={["column", "row"]}>
            
