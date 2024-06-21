@@ -18,7 +18,7 @@ model Product {
     name        String
     description String
     value       Float
-    avaliable   Boolean
+    available   Boolean
     createDate  DateTime @default(now())
 
     user   User?   @relation(fields: [userId], references: [id])
