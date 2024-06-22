@@ -35,3 +35,4 @@ Este projeto implementa um sistema de gestão de produtos com funcionalidades pa
 - execute `cd frontend` e logo após `yarn install` para instalar as dependencias
 - execute `cd backend` e logo após `yarn install` para instalar as dependencias
 - logo após cada yarn install, execute `yarn dev` dentro de /frontend e execute `yarn dev` dentro de /backend
+- o frontend será executado em `http://localhost:5173`
