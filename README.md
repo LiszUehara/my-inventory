@@ -5,6 +5,7 @@ Este projeto implementa um sistema de gestão de produtos com funcionalidades pa
 ## Sumário
 
 - [Pacotes](#pacotes)
+- [Executar](#executar)
 
 
 ## Pacotes
@@ -26,3 +27,11 @@ Este projeto implementa um sistema de gestão de produtos com funcionalidades pa
 - **Localização**: /backend
 - **Uso**:
     Rotas de Usuário, de produto
+
+## Executar
+
+- Clone o repositório
+- Com a pasta raiz do repositório aberta em um terminal
+- execute `cd frontend` e logo após `yarn install` para instalar as dependencias
+- execute `cd backend` e logo após `yarn install` para instalar as dependencias
+- logo após cada yarn install, execute `yarn dev` dentro de /frontend e execute `yarn dev` dentro de /backend
